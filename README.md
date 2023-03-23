@@ -17,4 +17,6 @@ Même chose que pour la regression linéaire, mais cette fois-ci, le set de donn
 
 
 En ce qui concerne la partie Verilog, vous trouverez un dossier pour chaque exercice demandé.
-Un rapport détaillant les résultats est fournit dans le dossier "Partie_verilog"
+Un rapport détaillant les résultats est fournit dans le dossier "Partie_verilog".
+
+Bonne lecture et bon courage !
