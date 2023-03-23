@@ -1,0 +1,69 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000279abdfbdd0 .scope module, "stimulus" "stimulus" 2 4;
+ .timescale -9 -12;
+v00000279abe35c40_0 .var "a", 7 0;
+v00000279abe453f0_0 .var "b", 7 0;
+v00000279abe45490_0 .net "sum", 7 0, L_00000279abe45530;  1 drivers
+S_00000279abdfaba0 .scope module, "uut" "add8bit" 2 11, 3 1 0, S_00000279abdfbdd0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 8 "a";
+    .port_info 1 /INPUT 8 "b";
+    .port_info 2 /OUTPUT 8 "sum";
+v00000279abe35a60_0 .net "a", 7 0, v00000279abe35c40_0;  1 drivers
+v00000279abe35b00_0 .net "b", 7 0, v00000279abe453f0_0;  1 drivers
+v00000279abe35ba0_0 .net "sum", 7 0, L_00000279abe45530;  alias, 1 drivers
+L_00000279abe45530 .arith/sum 8, v00000279abe35c40_0, v00000279abe453f0_0;
+    .scope S_00000279abdfbdd0;
+T_0 ;
+    %vpi_call 2 18 "$dumpfile", "add8bit.vcd" {0 0 0};
+    %vpi_call 2 19 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000279abdfbdd0 {0 0 0};
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v00000279abe35c40_0, 0, 8;
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v00000279abe453f0_0, 0, 8;
+    %delay 20000, 0;
+    %pushi/vec4 255, 0, 8;
+    %store/vec4 v00000279abe35c40_0, 0, 8;
+    %delay 20000, 0;
+    %pushi/vec4 255, 0, 8;
+    %store/vec4 v00000279abe453f0_0, 0, 8;
+    %delay 20000, 0;
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v00000279abe453f0_0, 0, 8;
+    %delay 20000, 0;
+    %pushi/vec4 255, 0, 8;
+    %store/vec4 v00000279abe35c40_0, 0, 8;
+    %delay 20000, 0;
+    %pushi/vec4 128, 0, 8;
+    %store/vec4 v00000279abe35c40_0, 0, 8;
+    %delay 20000, 0;
+    %pushi/vec4 1, 0, 8;
+    %store/vec4 v00000279abe453f0_0, 0, 8;
+    %delay 20000, 0;
+    %pushi/vec4 128, 0, 8;
+    %store/vec4 v00000279abe35c40_0, 0, 8;
+    %delay 20000, 0;
+    %pushi/vec4 128, 0, 8;
+    %store/vec4 v00000279abe453f0_0, 0, 8;
+    %delay 40000, 0;
+    %end;
+    .thread T_0;
+    .scope S_00000279abdfbdd0;
+T_1 ;
+    %vpi_call 2 39 "$monitor", "t=%3d a=%b,b=%b,sum=%b\012", $time, v00000279abe35c40_0, v00000279abe453f0_0, v00000279abe45490_0 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "test_add8bit.v";
+    "./add8bit.v";
