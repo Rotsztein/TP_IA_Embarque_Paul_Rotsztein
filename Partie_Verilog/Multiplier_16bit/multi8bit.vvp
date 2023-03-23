@@ -1,0 +1,77 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000141d496b180 .scope module, "stimulus" "stimulus" 2 4;
+ .timescale -9 -12;
+v00000141d4966da0_0 .var "a", 7 0;
+v00000141d4966e40_0 .var "b", 7 0;
+v00000141d4966ee0_0 .net "sum", 15 0, L_00000141d4c459a0;  1 drivers
+S_00000141d496b9f0 .scope module, "uut" "multi8bit" 2 11, 3 1 0, S_00000141d496b180;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 8 "a";
+    .port_info 1 /INPUT 8 "b";
+    .port_info 2 /OUTPUT 16 "sum";
+v00000141d496a850_0 .net *"_ivl_0", 15 0, L_00000141d4bfc840;  1 drivers
+L_00000141d4bfc8e8 .functor BUFT 1, C4<00000000>, C4<0>, C4<0>, C4<0>;
+v00000141d496bb80_0 .net *"_ivl_3", 7 0, L_00000141d4bfc8e8;  1 drivers
+v00000141d496bc20_0 .net *"_ivl_4", 15 0, L_00000141d4c448f0;  1 drivers
+L_00000141d4bfc930 .functor BUFT 1, C4<00000000>, C4<0>, C4<0>, C4<0>;
+v00000141d4966b20_0 .net *"_ivl_7", 7 0, L_00000141d4bfc930;  1 drivers
+v00000141d4966bc0_0 .net "a", 7 0, v00000141d4966da0_0;  1 drivers
+v00000141d4966c60_0 .net "b", 7 0, v00000141d4966e40_0;  1 drivers
+v00000141d4966d00_0 .net "sum", 15 0, L_00000141d4c459a0;  alias, 1 drivers
+L_00000141d4bfc840 .concat [ 8 8 0 0], v00000141d4966da0_0, L_00000141d4bfc8e8;
+L_00000141d4c448f0 .concat [ 8 8 0 0], v00000141d4966e40_0, L_00000141d4bfc930;
+L_00000141d4c459a0 .arith/mult 16, L_00000141d4bfc840, L_00000141d4c448f0;
+    .scope S_00000141d496b180;
+T_0 ;
+    %vpi_call 2 18 "$dumpfile", "multi8bit.vcd" {0 0 0};
+    %vpi_call 2 19 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000141d496b180 {0 0 0};
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v00000141d4966da0_0, 0, 8;
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v00000141d4966e40_0, 0, 8;
+    %delay 20000, 0;
+    %pushi/vec4 1, 0, 8;
+    %store/vec4 v00000141d4966da0_0, 0, 8;
+    %delay 20000, 0;
+    %pushi/vec4 3, 0, 8;
+    %store/vec4 v00000141d4966e40_0, 0, 8;
+    %delay 20000, 0;
+    %pushi/vec4 3, 0, 8;
+    %store/vec4 v00000141d4966e40_0, 0, 8;
+    %delay 20000, 0;
+    %pushi/vec4 7, 0, 8;
+    %store/vec4 v00000141d4966da0_0, 0, 8;
+    %delay 20000, 0;
+    %pushi/vec4 135, 0, 8;
+    %store/vec4 v00000141d4966da0_0, 0, 8;
+    %delay 20000, 0;
+    %pushi/vec4 15, 0, 8;
+    %store/vec4 v00000141d4966e40_0, 0, 8;
+    %delay 20000, 0;
+    %pushi/vec4 128, 0, 8;
+    %store/vec4 v00000141d4966da0_0, 0, 8;
+    %delay 20000, 0;
+    %pushi/vec4 21, 0, 8;
+    %store/vec4 v00000141d4966e40_0, 0, 8;
+    %delay 40000, 0;
+    %end;
+    .thread T_0;
+    .scope S_00000141d496b180;
+T_1 ;
+    %vpi_call 2 39 "$monitor", "t=%3d a=%b,b=%b,sum=%b\012", $time, v00000141d4966da0_0, v00000141d4966e40_0, v00000141d4966ee0_0 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "test_multi8bit.v";
+    "./multi8bit.v";
